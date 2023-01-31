@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN AND REGISTRATION PAGE</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-icons">
+                <img src="./images/facebook-social-media-icon-design-template-vector-png_127003.png" alt="">
+                <img src="./images/download.jpeg" alt="">
+                <img src="./images/download.png" alt="">
+            </div>
+            <form id="login" class="input-group">
+                <input  type="text" class="input-field" placeholder="User Id" required>
+                <input  type="password" class="input-field" placeholder="Enter Password" required>
+                <input  type="checkbox" class="check-box"> <span>Remember Password</span>
+                <button type="submit" class="submit-btn">Log IN</button>
+            </form>
+            <form id="register" class="input-group contact-form" method="post">
+                <input name="name" type="text" class="input-field name" placeholder="User Id" >
+                <input name="email" type="email" class="input-field email" placeholder="Email Id" >
+                <input name="password" type="password" class="input-field password" placeholder="Enter Password" >
+                <input name="checkbox" type="checkbox" class="check-box"> <span>I agree to the terms & conditions</span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+
+<!-- 
+            <form action="" class="contact-form">
+                <div class="my-3">
+                    <label for="">Name</label>
+                    <input class = "name" name="name" class="form-control" type="text">
+                </div>
+                <div class="my-3">
+                    <label for="">email</label>
+                    <input class = "email" name="email" class="form-control" type="text">
+                </div>
+                <div class="my-3">
+                    <label for="">Password</label>
+                    <input class = "password" name="password" class="form-control" type="text">
+                </div>
+                <div class="my-3">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </form> -->
+        </div>
+    </div>
+    
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("register") ;
+        var z = document.getElementById("btn");
+
+        function register(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "550px";
+            z.style.left = "0px";
+        }
+   
+</script>
+
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script>
+     
+    
+    
+    
+     let form = document.querySelector('.contact-form')
+
+    form.onsubmit = (e) => {
+    e.preventDefault();
+    
+    const name = document.querySelector('.name').value,
+    email = document.querySelector('.email').value,
+     password = document.querySelector('.password').value;
+
+     if(name == '' || email == '' || password == ''){
+        
+        swal({
+            title : "Ohhh!",
+            text : "All fields are required!",
+            icons : "error",
+            buttons : "cencel"
+        })
+     }else{
+
+        
+     //send email confirmation mail box 
+
+     Email.send({
+    Host : "smtp.elasticemail.com",
+    Username : "mssharminakter2000@gmail.com",
+    Password : "8FC06217E3DB8B117323B1A93AFB5ED9F05B",
+    To : 'programmersharmin@gmail.com',
+    From :  'mssharminakter2000@gmail.com',
+    Subject : `Hii ${name} your confirmation mail send to successfull. `,
+    Body : "kicu likhinai tui likhe nic"
+}).then(
+  message => alert(message)
+);
+}
+
+}
+
+</script>
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    
+</body>
+</html>
